@@ -1,0 +1,102 @@
+<!doctype html>
+<head>
+    <link rel=stylesheet href=style.css>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>Dungbeetle - Hosting</title>
+</head>
+<body>
+    <div id=header></div>
+    <div id=body>
+
+        <div class=nav id=site_nav><a href=introduction.htm>Introduction</a> <a href=getting_started.htm>Getting Started</a> <a href=managing_projects.htm>Managing Projects</a> <a href=connection_config.htm>Connecting</a> <a href=hosting.htm class=active>Hosting</a> <a href=files.htm>Files</a> <a href=migrating_servers.htm>Server Migration</a> <a href=backing_up.htm>Backing Up</a> <a href=monodevelop.htm>MonoDevelop</a></div>
+
+        <h3>Setting up a Dungbeetle host</h3>
+        <figure class=example>
+            <img src=Capture9.png>
+            <figcaption>Navigating to '<i>Window</i>&#8594;<i>Dungbeetle</i>&#8594;<i>Tools</i>&#8594;<i>Build DLL or Server</i>&#8594;<i>Standalone Server</i>' opens the server compilation window</figcaption>
+        </figure>
+
+        <p>By default, <i>Dungbeetle</i> is configured to run a server as an editor script in Unity. It is a demonstration server, not suitable for long-term projects, since it shuts down when you close Unity. Make sure to <b>turn this off</b> in the <a href="connection_config.htm">connection config</a>.</p>
+        <p>To set up a permanent server, you can create a <i>Standalone Server</i>. This server only requires a .net runtime, and runs separately from Unity.</p>
+        <p>The standalone server stores its configuration in <b>ServerPreferences.yaml</b>. The defaults are generated from your current <b>config.asset</b> and placed next to the executable at the time of compilation.</p>
+
+        <p>You can call <b>DungbeetleServer.exe</b> with the <i>--preferences &lt;path&gt;</i> flag to control its placement later.</p>
+
+        <h3>ServerPreferences.yaml details</h3>
+        <p>Also see <a href=connection_config.htm><b>config.asset</b></a>.</p>
+        <dl>
+            <dt>mode:</dt>
+            <dd><i>SQLite</i> or <i>MySQL</i></dd>
+            <dt>port:</dt>
+            <dd>Network port for <i>Dungbeetle</i> hosting.</dd>
+            <dt>dbUserName:</dt>
+            <dd>MySQL username</dd>
+            <dt>dbPassword:</dt>
+            <dd>MySQL password</dd>
+            <dt>dbPort:</dt>
+            <dd>MySQL port</dd>
+            <dt>dbUrl:</dt>
+            <dd>MySQL host url</dd>
+            <dt>dbName:</dt>
+            <dd>MySQL database name</dd>
+            <dt>reporterPasword:</dt>
+            <dd>Password required to grant clients the reporter privilege.</dd>
+            <dt>developerPassword:</dt>
+            <dd>Password required to grant clients the developer privilege.</dd>
+            <dt>privateKey:</dt>
+            <dd>Key used to decrypt <i>Dungbeetle</i> network traffic.</dd>
+        </dl>
+
+        <h3>Setting up a .net runtime</h3>
+        <p>On Windows, a .net runtime support is built in, so you can basically skip this section.</p>
+        <p>On OS X and Linux, you will need a <a href=http://www.mono-project.com>mono</a> runtime to run the server.</p>
+        <p>On OS X in particular, the mono command might not be available right after installation. If you have this problem, refer to <a href=http://stackoverflow.com/questions/32542535/mono-installed-on-mac-but-not-recognized-in-terminal>this post on stackoverflow</a>.</p>
+        <p>To run DungbeetleServer.exe, open the terminal in the same folder as <em>Dungbeetle.exe</em> and run mono with DungbeetleServer.exe as its argument:<br><span class=console>mono DungbeetleServer.exe</span></p>
+        <p>To pass arguments to DungbeetleServer.exe, just pass them to mono as if you were running DungbeetleServer.exe directly.</p>
+
+        <h3>Setting up a MySQL backend</h3>
+        <p>Dungbeetle can use MySQL as a backend instead of SQLite for performance or other reasons.</p>
+        <p>If you want MySQL as your backend, follow these steps.</p>
+        <ol>
+            <li>Install a <a href="https://dev.mysql.com" target="_blank">MySQL server</a> on the same machine, or some other machine you have access to.</li>
+            <li>Create a user on the server: <span class=console>CREATE USER 'fredrik'@'localhost' IDENTIFIED BY 'some_pass';</span></li>
+            <li>Grant that user access to the database that you want to use: <span class=console>GRANT ALL ON dungbeetle.* TO 'fredrik'@'localhost';</li>
+            <li>Do not create the database, but remember its name. In our case it is <i>dungbeetle</i>.</li>
+            <li>Note down the details in <i>ServerPreferences.Yaml</i></li>
+        </ol>
+
+        <h3>Sample initscript for Ubuntu</h3>
+
+        <p>Download it <a href=dungbeetle_initscript>here</a>.<br>I recommend that you compare it to your own /etc/inid.d/skeleton, since it's based on that.</p>
+        <p>Assumptions about your installation:<ul>
+            <li><em>DungbeetleServer.exe</em> and its dll's are placed in /opt/dungbeetle</li>
+            <li>You've replaced &lt;USER&gt; with your username in the script.</li>
+            <li>The script has <em>execute</em> permissions.</li>
+            <li>There is a folder called DungbeetleHome in your home folder.</li>
+        </ul></p>
+        <p>Notable quirks about <em>DungbeetleServer.exe</em> (all handled by the script):<ul>
+            <li><em>DungbeetleServer.exe</em> needs to be run by mono</li>
+            <li>The server does not write a pidfile itself.</li>
+            <li>The server does not fork into the background.</li>
+        </ul></p>
+
+        <h3>Running as a service in Windows</h3>
+
+        <p>DungbeetleServer.exe supports being run as a service in Windows.</p>
+        <p>Before it's run the first time, the server needs to know where it should store its data.</p>
+        <p>I'm using <span class=console>C:\Users\&lt;USERNAME&gt;\DungbeetleHome</span> as my main Dungbeetle folder in this
+        example, but it's all up to you. Almost none of the files actually need to be in the same folder
+        when configured appropriately.<ul>
+            <li>Generally calling <span class=console_short>DungbeetleServer.exe --help</span> should provide you with the best details.</li>
+            <li>To prepare the service, call it something like this (as administrator): <span class=console>DungbeetleServer.exe --store-in-registry --home="C:\Users\&lt;USERNAME&gt;\DungbeetleHome"</span></li>
+        </ul></p>
+        <p>Create the service (as administrator):<ul>
+            <li><span class=console>sc.exe create Dungbeetle binPath= "C:\Users\&lt;USERNAME&gt;\DungbeetleHome\DungbeetleServer.exe"</span></li>
+        </ul></p>
+        <p>Now you can open up the service manager and start Dungbeetle as a service.</p>
+
+    </div>
+</body>

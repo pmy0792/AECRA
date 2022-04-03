@@ -1,0 +1,30 @@
+<!doctype html>
+<head>
+    <link rel=stylesheet href=style.css>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>Dungbeetle - Server Migration</title>
+</head>
+<body>
+    <div id=header></div>
+    <div id=body>
+
+        <div class=nav id=site_nav><a href=introduction.htm>Introduction</a> <a href=getting_started.htm>Getting Started</a> <a href=managing_projects.htm>Managing Projects</a> <a href=connection_config.htm>Connecting</a> <a href=hosting.htm>Hosting</a> <a href=files.htm>Files</a> <a href=migrating_servers.htm class=active>Server Migration</a> <a href=backing_up.htm>Backing Up</a> <a href=monodevelop.htm>MonoDevelop</a></div>
+
+        <h3>Migrating to a different server</h3>
+        <figure class=example>
+            <img src=Capture12.png>
+            <figcaption>Navigating to '<i>Window</i>&#8594;<i>Dungbeetle</i>&#8594;<i>Tools</i>&#8594;<i>Server Migration</i>' opens the server migration window</figcaption>
+        </figure>
+        <figure class=example>
+            <img src=Capture13.png>
+        </figure>
+
+        <p>The server migration window takes on the task of moving every bug on one server to another server, including screenshot images.</p>
+        <p>All projects default to not migrating, so you can not proceed until at least one project is included.</p>
+        <p>'<i>Use this machine as a proxy</i>' means that the bugs will be sent via your local machine. The default is to send them directly.</p>
+        <p>Be aware that <strong>clearing</strong> any of the databases during the migration process could potentially delete valuable bug reports, so double check what you are doing before choosing this option.</p>
+    </div>
+</body>

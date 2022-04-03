@@ -1,0 +1,42 @@
+<!doctype html>
+<head>
+    <link rel=stylesheet href=style.css>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>Dungbeetle - Backing Up</title>
+</head>
+<body>
+    <div id=header></div>
+    <div id=body>
+
+        <div class=nav id=site_nav><a href=introduction.htm>Introduction</a> <a href=getting_started.htm>Getting Started</a> <a href=managing_projects.htm>Managing Projects</a> <a href=connection_config.htm>Connecting</a> <a href=hosting.htm>Hosting</a> <a href=files.htm>Files</a> <a href=migrating_servers.htm>Server Migration</a> <a href=backing_up.htm class=active>Backing Up</a> <a href=monodevelop.htm>MonoDevelop</a></div>
+
+        <h3>Backing Up</h3>
+
+        <p>There are only two assets that you need to back up on your <i>Dungbeetle</i> server.
+        <ul>
+            <li>The database</li>
+            <li>The screenshots</li>
+        </ul></p>
+
+        <p>If your server uses MySQL:
+        <ul>
+            <li>Use mysqldump to back up your database.</li>
+            <li>Back up <b>Screenshots</b>.</li>
+        </ul></p>
+
+        <p>If your server uses SQLite:
+        <ul>
+            <li>Back up <b>DungbeetleDatabase.sqlite</b>.</li>
+            <li>Back up <b>Screenshots</b>.</li>
+        </ul></p>
+
+        <p>Command line flags can be used to place the assets in specific places, so make sure you back up appropriately.</p>
+        <p>Run <span class=console>DungbeetleServer.exe --help</span> for path details.</p>
+
+        <p>That should be it! You're all backed up.</p>
+
+    </div>
+</body>

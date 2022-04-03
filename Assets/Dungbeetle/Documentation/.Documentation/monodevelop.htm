@@ -1,0 +1,50 @@
+<!doctype html>
+<head>
+    <link rel=stylesheet href=style.css>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>Dungbeetle - Dealing With MonoDevelop</title>
+</head>
+<body>
+    <div id=header></div>
+    <div id=body>
+
+        <div class=nav id=site_nav><a href=introduction.htm>Introduction</a> <a href=getting_started.htm>Getting Started</a> <a href=managing_projects.htm>Managing Projects</a> <a href=connection_config.htm>Connecting</a> <a href=hosting.htm>Hosting</a> <a href=files.htm>Files</a> <a href=migrating_servers.htm>Server Migration</a> <a href=backing_up.htm>Backing Up</a> <a href=monodevelop.htm class=active>MonoDevelop</a></div>
+
+        <h3>Dealing With MonoDevelop</h3>
+
+        <p>If you're using <i>MonoDevelop</i> to compile your project, you might be interrested in how to make <i>Dungbeetle</i> compile properly with it.</p>
+        <p>The following might be the first thing you see when you first open a <i>MonoDevelop</i> project that contains the <i>Dungbeetle</i> source code.</p>
+
+        <figure class=example>
+            <img src="MonoDevelop - Errors.png">
+        </figure>
+
+        <p>The first issue we need to handle is a common one. MonoDevelop doesn't handle default parameters. To fix this, just change the target framework for <b>Assembly-CSharp</b>.</p>
+
+        <figure class=example>
+            <img src="MonoDevelop - Target framework.png">
+        </figure>
+
+        <p>Then we need to fix that <i>MonoDevelop</i> doesn't find the correct references.</p>
+        <p>The assembly <b>UnityScript.dll</b> is even included in <i>Dungbeetle</i> just for this purpose. It's a DLL that you can otherwise find inside your Unity installation files. I you don't use <i>MonoDevelop</i>, you can delete it from your project.</p>
+        <p>The following images shows how to set up the correct references.</p>
+
+        <figure class=example>
+            <img src="MonoDevelop - Boo-firstpass.png">
+        </figure>
+
+        <figure class=example>
+            <img src="MonoDevelop - Boo-Editor-firstpass.png">
+        </figure>
+
+        <figure class=example>
+            <img src="MonoDevelop - CSharp.png">
+        </figure>
+
+        <p>And as always... if you run into problems, you can always ask for my help at <a href="mailto:post@fredrik.ludvigsen.name">post@fredrik.ludvigsen.name</a>. I'll do my best to help you out.</p>
+
+    </div>
+</body>

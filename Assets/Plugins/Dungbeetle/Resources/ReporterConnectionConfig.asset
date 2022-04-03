@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -325195979, guid: 05a74f59f5144dd43ac112cd0432c9ad, type: 3}
+  m_Name: ReporterConnectionConfig
+  m_EditorClassIdentifier: 
+  clientConfig: {fileID: -3771629544439054534, guid: 4c3ae0023d44fce4e9355a2f399f831e, type: 2}
