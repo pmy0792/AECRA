@@ -1,0 +1,48 @@
+<!doctype html>
+<head>
+    <link rel=stylesheet href=style.css>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>Dungbeetle - Connecting</title>
+</head>
+<body>
+    <div id=header></div>
+    <div id=body>
+
+        <div class=nav id=site_nav><a href=introduction.htm>Introduction</a> <a href=getting_started.htm>Getting Started</a> <a href=managing_projects.htm>Managing Projects</a> <a href=connection_config.htm class=active>Connecting</a> <a href=hosting.htm>Hosting</a> <a href=files.htm>Files</a> <a href=migrating_servers.htm>Server Migration</a> <a href=backing_up.htm>Backing Up</a> <a href=monodevelop.htm>MonoDevelop</a></div>
+
+        <h3>Setting up a server connection</h3>
+        <figure class=example>
+            <img src=Capture11.png>
+            <figcaption>Navigating to '<i>Window</i>&#8594;<i>Dungbeetle</i>&#8594;<i>Connection</i>' opens the connection config window</figcaption>
+        </figure>
+        <figure class=example>
+            <img src=Capture7.png>
+        </figure>
+
+        <p>All networked connections in <i>Dungbeetle</i> use some of the details stored in <b>config.asset</b>.</p>
+        <p>Use the connection config window whenever you need to change connection settings.</p>
+        <p>The connection settings is stored in <b>config.asset</b>. Share this with your team.</p>
+
+        <h3>Connection details</h3>
+        <dl>
+            <dt>Domain:</dt>
+            <dd>An <i>IP</i> or <i>Domain</i> that can be used to reach your server.</dd>
+            <dt>Port:</dt>
+            <dd>The network port used to connect to your server.</dd>
+            <dt>Public Key:</dt>
+            <dd>This key is used by clients connecting to your server, and is mathematically connected with the <i>Private Key</i>. For new projects connecting to a server that has a specific key, use <i>Copy to Clipboard</i> on the <i>Private Key</i>, and use <i>Paste from Clipboard</i> into the <i>Public Key</i>. The fingerprints does <b>not</b> have to match between the public and the private key, but a given <i>Private Key</i>, will always produce the same <i>Public Key</i>.</dd>
+            <dt>Private Key:</dt>
+            <dd>This key is used by the server to authenticate connecting clients, and decrypting their information. In most cases, leave this field alone. If you already have a server running, you can find the <i>Private Key</i> in <b>ServerPreferences.yaml</b>, next to the server executable.</dd>
+            <dt>Reporter Password:</dt>
+            <dd>Grants <i>Reporter</i> privileges (aka. bug report submission).</dd>
+            <dt>Developer Password:</dt>
+            <dd>Grants <i>Developer</i> privileges.</dd>
+            <dt>Project ID</dt>
+            <dd>Change this to work on a different set of bug reports. One project per <i>Unity</i> project is recommended. You can create these in the projects window.</dd>
+        </dl>
+
+    </div>
+</body>
