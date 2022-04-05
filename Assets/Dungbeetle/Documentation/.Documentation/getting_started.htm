@@ -1,0 +1,59 @@
+<!doctype html>
+<head>
+    <link rel=stylesheet href=style.css>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>Dungbeetle Getting Started</title>
+</head>
+<body>
+    <div id=header></div>
+    <div id=body>
+
+        <div class=nav id=site_nav><a href=introduction.htm>Introduction</a> <a href=getting_started.htm class=active>Getting Started</a> <a href=managing_projects.htm>Managing Projects</a> <a href=connection_config.htm>Connecting</a> <a href=hosting.htm>Hosting</a> <a href=files.htm>Files</a> <a href=migrating_servers.htm>Server Migration</a> <a href=backing_up.htm>Backing Up</a> <a href=monodevelop.htm>MonoDevelop</a></div>
+
+        <!--<h2>Dungbeetle Getting Started</h2>-->
+        <h3>Setting it up</h3>
+        <h4>1. Add a BugReportFormLauncher to your scene.</h4>
+        <figure class=example>
+            <img src=Capture15.png>
+            <figcaption>Adding a <i>BugReportFormLanucher</i></figcaption>
+        </figure>
+
+        <h3>Reporting a bug via Dungbeetle</h3>
+        <h4>1. Submission</h4>
+        <figure class=example>
+            <img src=Capture2.png>
+            <figcaption>Screenshot from a game with <i>Dungbeetle</i> support</figcaption>
+        </figure>
+        <figure class=example>
+            <img src=Capture1.png>
+            <figcaption>Bug report form with description entered by the player</figcaption>
+        </figure>
+        <p>Pressing the F7 button during gameplay launches a bug reporting form which includes a screenshot from the game. The actual report will also contain information like the scene name, build name and any other information the developer chooses to include.</p>
+        <p>If you want to attach custom data, specify that in <i>BugReportFormLauncher</i>.</p>
+        <p>If you want to customize the GUI, replace the <i>BugReportForm</i> with your own implementation.</p>
+        <p>If you want to have full control, refer to <i>BugReportSender.Send(...).</i></p>
+        <h4>2. Tracking</h4>
+        <figure class=example>
+            <img src=Capture10.png>
+            <figcaption>Navigating to '<i>Window</i>&#8594;<i>Dungbeetle</i>&#8594;<i>Bug Reports</i>' opens the overview window</figcaption>
+        </figure>
+        <figure class=example>
+            <img src=Capture3.png>
+        </figure>
+        <p>The overview window is the first place to find reported bugs in <i>Dungbeetle</i>. New bugs will show up in the <i>Unassigned</i> tab, which is also the default tab.</p>
+        <p>After being reported, bugs reports move through the three incomplete stages of Dungbeetle (<i>Unassigned</i>, <i>Assigned</i> and <i>Fixed</i>), before reaching their final stage (<i>Resolved</i>).</p>
+        <p>When appropriate, bug reports can skip stages, or be deleted.</p>
+
+        <figure class=example>
+            <img src=Capture4.png>
+            <figcaption>The detail window</figcaption>
+        </figure>
+
+        <p>Clicking the '<i>Details</i>' button on a bug report in the overview window, opens the bug report's detail window.</p>
+        <p>In the detail window developers can edit a bug report's <i>comment field</i>, <i>priority</i> and <i>contact responsible</i>.</p>
+        <p>The <i>contact responsible</i> is just a reference to keep, in case anyone on the team has been in contact with the person who submitted the bug report. Alternatively, the team could have written such details in the comment by hand. The <i>contact responsible</i> is just a bit more structured, and it doesn't require the same level of dicipline from the team.</p>
+    </div>
+</body>
