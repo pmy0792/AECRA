@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 public class CharacterScript : MonoBehaviour
 {
     public float speed = 5;
-    // Start is called before the first frame update
+    float horizontal;
+    public SpriteRenderer rend;
     void Start()
     { 
-        
+        rend=GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -25,10 +26,17 @@ public class CharacterScript : MonoBehaviour
 
         transform.position = pos;
 
+
+     horizontal=Input.GetAxis("Horizontal");
+            if (horizontal!=0){
+                if (horizontal>0) rend.flipX=false;
+                else rend.flipX=true;
+                }
+
         
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        SceneManager.LoadScene("GameOverScene");
-    }
+    //private void OnCollisionEnter2D(Collision2D other) {
+    //   SceneManager.LoadScene("GameOverScene");
+    //}
 }
