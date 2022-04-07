@@ -6,10 +6,15 @@ using UnityEngine.SceneManagement;
 public class CharacterScript : MonoBehaviour
 {
     public float speed = 5;
-    // Start is called before the first frame update
+    float horizontal;
+    public SpriteRenderer rend;
+    
+    public Animator animator;
     void Start()
-    {
-        
+    { 
+        rend=GetComponent<SpriteRenderer>();
+        animator=GetComponent<Animator>();
+        animator.SetBool("Attack",false);
     }
 
     // Update is called once per frame
@@ -25,10 +30,32 @@ public class CharacterScript : MonoBehaviour
 
         transform.position = pos;
 
+
+        
+                
+    if (Input.anyKeyDown){
+        if (Input.GetKeyDown("a") ){
+            Debug.Log("Attack");
+            animator.SetBool("Attack",true);
+        }
+
+        
+
+        else{
+            horizontal=Input.GetAxis("Horizontal");
+            if (horizontal!=0){
+                if (horizontal>0) rend.flipX=false;
+                else rend.flipX=true;
+        }
+    }
+    }
+    if (Input.GetKeyUp("a") ){
+            animator.SetBool("Attack",false);
+        }
         
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        SceneManager.LoadScene("GameOverScene");
-    }
+    //private void OnCollisionEnter2D(Collision2D other) {
+    //   SceneManager.LoadScene("GameOverScene");
+    //}
 }
