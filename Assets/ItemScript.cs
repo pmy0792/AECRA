@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemScript : MonoBehaviour
 {
     public int ScoreUp=50;
+    
     // Start is called before the first frame update
     void Start()
     {
