@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private BoxCollider2D coll;
+    private CapsuleCollider2D coll;
     private SpriteRenderer sprite;
 
     [SerializeField] private LayerMask jumpableGround;
@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        coll = GetComponent<BoxCollider2D>();
+        coll = GetComponent<CapsuleCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
     }
 
@@ -55,10 +55,17 @@ public class PlayerMovement : MonoBehaviour
             jumpSoundEffect.Play();
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
+
     }
 
     private bool IsGrounded()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
+    }
+
+    public void JumpedOnEnemy()
+    {
+        jumpSoundEffect.Play();
+        rb.velocity = new Vector2(rb.velocity.x, 3);
     }
 }
