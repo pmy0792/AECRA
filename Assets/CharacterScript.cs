@@ -9,9 +9,8 @@ public class CharacterScript : MonoBehaviour
     Rigidbody2D body;
     float horizontal;
     public SpriteRenderer rend;
-
-    [SerializeField]
-    private AudioSource jumpSoundEffect;
+    private float power=1f;
+    public Animator animator;
     void Start()
     { 
         body=GetComponent<Rigidbody2D>();
@@ -50,7 +49,6 @@ public class CharacterScript : MonoBehaviour
         else{
             horizontal=Input.GetAxis("Horizontal");
             if (horizontal!=0){
-                jumpSoundEffect.Play();
                 if (horizontal>0) rend.flipX=false;
                 else rend.flipX=true;
         }
@@ -62,7 +60,5 @@ public class CharacterScript : MonoBehaviour
         
     }
 
-    //private void OnCollisionEnter2D(Collision2D other) {
-    //   SceneManager.LoadScene("GameOverScene");
-    //}
+    
 }
