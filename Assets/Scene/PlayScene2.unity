@@ -3191,6 +3191,7 @@ GameObject:
   - component: {fileID: 348700009}
   - component: {fileID: 348700010}
   - component: {fileID: 348700002}
+  - component: {fileID: 348700012}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3750,6 +3751,21 @@ CapsuleCollider2D:
   m_Offset: {x: -0.13965487, y: 0}
   m_Size: {x: 0.72069025, y: 1}
   m_Direction: 0
+--- !u!114 &348700012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348699999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c42f5051850e6464f9897044d6c47828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position: {x: 0, y: 0, z: 0}
+  player: {fileID: 348699999}
+  SceneIndex: 0
 --- !u!1 &361836950
 GameObject:
   m_ObjectHideFlags: 0
@@ -3918,6 +3934,18 @@ MonoBehaviour:
       - m_Target: {fileID: 14142103}
         m_TargetAssemblyTypeName: OpenScenes, Assembly-CSharp
         m_MethodName: OpenMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 348700012}
+        m_TargetAssemblyTypeName: SavePrefs, Assembly-CSharp
+        m_MethodName: Save
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7832,6 +7860,18 @@ MonoBehaviour:
       - m_Target: {fileID: 14142104}
         m_TargetAssemblyTypeName: QuitManager, Assembly-CSharp
         m_MethodName: ExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 348700012}
+        m_TargetAssemblyTypeName: SavePrefs, Assembly-CSharp
+        m_MethodName: Save
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
