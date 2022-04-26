@@ -6514,7 +6514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1700fbaeb718b17439fdaef814dfc785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  optionsInfo: {fileID: 2047760711}
+  optionsInfo: {fileID: 735306022}
   isPause: 0
 --- !u!114 &1009038538
 MonoBehaviour:
@@ -8372,7 +8372,6 @@ GameObject:
   - component: {fileID: 1413074838}
   - component: {fileID: 1413074837}
   - component: {fileID: 1413074836}
-  - component: {fileID: 1413074835}
   m_Layer: 5
   m_Name: PauseButton
   m_TagString: Untagged
@@ -8399,18 +8398,6 @@ RectTransform:
   m_AnchoredPosition: {x: 271.59995, y: -140}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1413074835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1413074833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92cfa9d8902d24c42b42f420a3d3847c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1413074836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8459,18 +8446,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 1
-      - m_Target: {fileID: 1413074835}
-        m_TargetAssemblyTypeName: NewBehaviourScript, Assembly-CSharp
-        m_MethodName: IsPause
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
