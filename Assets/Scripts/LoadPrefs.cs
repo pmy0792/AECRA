@@ -20,16 +20,6 @@ public class LoadPrefs : MonoBehaviour
 
     public void Load()
     {
-        SceneManager.LoadScene(PlayerPrefs.GetInt("loadScene"));
-        /*if(PlayerPrefs.GetFloat("x") != 0)
-        {
-            SceneManager.LoadScene(PlayerPrefs.GetInt("loadScene"));
-
-            transform.position = new Vector3(PlayerPrefs.GetFloat("x"),
-            PlayerPrefs.GetFloat("y"),
-            PlayerPrefs.GetFloat("z"));
-
-            ItemCollector.coins = PlayerPrefs.GetInt("coins");
-        }  */      
+        SceneManager.LoadScene(PlayerPrefs.GetInt("loadScene"));    
     }
 }

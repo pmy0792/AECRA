@@ -13,6 +13,7 @@ public class ItemCollector : MonoBehaviour
 
     private void Start() {
         coins = 0;
+        PlayerPrefs.SetInt("collect", 0); 
     }
     private void Update() {
         
@@ -23,9 +24,13 @@ public class ItemCollector : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Coin"))
         {
+            GameObject objectToDestroy = collision.gameObject;
+
             coinCollectionSoundEffect.Play();
             Destroy(collision.gameObject);
             coins++;
+            
+            PlayerPrefs.SetInt("collect", 1);
         }
 
         else if (collision.gameObject.CompareTag("Vaccine"))
