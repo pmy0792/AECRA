@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VaccineScript : MonoBehaviour
 {
-       public GameObject gameobject; 
+    int ScoreUp=120;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +20,7 @@ public class VaccineScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.tag=="Player"){
             VaccineUIScript.vaccine+=1;
+            ScoreScript.score+=ScoreUp;
             gameObject.SetActive(false);
         }    
     }

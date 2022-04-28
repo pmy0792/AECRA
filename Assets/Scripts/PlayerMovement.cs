@@ -28,9 +28,16 @@ public class PlayerMovement : MonoBehaviour
 
     // Update is called once per frame
     private void Update()
-    {
+    {   
+        //sprite.flipX = Input.GetAxisRaw("Horizontal") == -1;
+        if (Input.GetAxisRaw("Horizontal") == -1 ){
+            sprite.flipX=true;
+        }
+        if (Input.GetAxisRaw("Horizontal") == 1){
+            sprite.flipX=false;
+        }
         dirX = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(dirX*moveSpeed, rb.velocity.y);
 
         if(rb.velocity.x != 0 && IsGrounded()) 
         {
@@ -56,7 +63,11 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
 
+        //if (Input.GetKey("right") || Input.GetKey("left")){
+        //    Debug.Log("flip");
+        //}
     }
+    
 
     private bool IsGrounded()
     {
