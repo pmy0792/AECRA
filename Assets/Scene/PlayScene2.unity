@@ -3182,7 +3182,6 @@ GameObject:
   - component: {fileID: 348700003}
   - component: {fileID: 348700011}
   - component: {fileID: 348700001}
-  - component: {fileID: 348700000}
   - component: {fileID: 348700006}
   - component: {fileID: 348700008}
   - component: {fileID: 348700005}
@@ -3191,7 +3190,6 @@ GameObject:
   - component: {fileID: 348700010}
   - component: {fileID: 348700002}
   - component: {fileID: 348700012}
-  - component: {fileID: 348700013}
   m_Layer: 0
   m_Name: 1
   m_TagString: Player
@@ -3199,21 +3197,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &348700000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 348699999}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 481a21c492701884b8011071ab668b63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  rend: {fileID: 0}
-  jumpSoundEffect: {fileID: 348700005}
 --- !u!50 &348700001
 Rigidbody2D:
   serializedVersion: 4
@@ -3769,19 +3752,6 @@ MonoBehaviour:
   position: {x: 0, y: 0, z: 0}
   player: {fileID: 348699999}
   SceneIndex: 0
---- !u!114 &348700013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 348699999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d12e7bf2b99f02642902d213f676d13d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 348699999}
 --- !u!1 &361836950
 GameObject:
   m_ObjectHideFlags: 0
@@ -8017,7 +7987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d12e7bf2b99f02642902d213f676d13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 348699999}
+  player: {fileID: 0}
 --- !u!1001 &1323803795
 PrefabInstance:
   m_ObjectHideFlags: 0
