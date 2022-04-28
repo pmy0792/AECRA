@@ -3647,6 +3647,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5331925e5778b79448c8b674b5d5f2ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: {fileID: 1763857423}
+  CurePower1: 10
+  CurePower2: 20
   collecting_vaccine: 0
   collecting_herb: 0
   collecting_coin: 0

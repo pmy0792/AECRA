@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 public class ItemCollector : MonoBehaviour
 {
     public static int coins = 0;
-
+    public Slider hp;
+    public float CurePower1=10f;
+    public float CurePower2=20f;
     public bool collecting_vaccine;
     public bool collecting_herb;
     public bool collecting_coin;
@@ -51,6 +54,8 @@ public class ItemCollector : MonoBehaviour
             
             collectionSoundEffect.Play();
             Destroy(collision.gameObject);
+
+            hp.value+=CurePower2;
             
             coins=coins+15;            
             PlayerPrefs.SetInt("collect", 1);
@@ -62,6 +67,8 @@ public class ItemCollector : MonoBehaviour
             collectionSoundEffect.Play();
             Destroy(collision.gameObject);
             collecting_herb=false;
+
+            hp.value+=CurePower1;
 
             coins=coins+10;            
             PlayerPrefs.SetInt("collect", 1);
