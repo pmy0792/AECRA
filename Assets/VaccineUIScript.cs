@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class VaccineUIScript : MonoBehaviour
 {
-    public static int vaccine=0;
+    public static int vaccine;
     // Start is called before the first frame update
     void Start()
     {
-        
+        vaccine=0;
     }
 
     // Update is called once per frame
