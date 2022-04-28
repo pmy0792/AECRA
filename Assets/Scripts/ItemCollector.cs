@@ -17,18 +17,16 @@ public class ItemCollector : MonoBehaviour
     }
     private void Update() {
         
-        coinsText.text = "Coins: " + coins;
+        coinsText.text = "Score: " + coins;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Coin"))
         {
-            GameObject objectToDestroy = collision.gameObject;
-
             coinCollectionSoundEffect.Play();
             Destroy(collision.gameObject);
-            coins++;
+            coins=coins+5;
             
             PlayerPrefs.SetInt("collect", 1);
         }
@@ -37,12 +35,18 @@ public class ItemCollector : MonoBehaviour
         {
             collectionSoundEffect.Play();
             Destroy(collision.gameObject);
+            coins=coins+15;
+            
+            PlayerPrefs.SetInt("collect", 1);
         }
 
         else if (collision.gameObject.CompareTag("Herb"))
         {
             collectionSoundEffect.Play();
             Destroy(collision.gameObject);
+            coins=coins+10;
+            
+            PlayerPrefs.SetInt("collect", 1);
         }
     }
 }

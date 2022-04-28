@@ -6145,8 +6145,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -218.16, y: -140}
-  m_SizeDelta: {x: 135.68, y: 25}
+  m_AnchoredPosition: {x: -197.41786, y: -141.25}
+  m_SizeDelta: {x: 177.1643, y: 27.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &877008090
 MonoBehaviour:
@@ -6168,7 +6168,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: coins
+  m_text: Score
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
