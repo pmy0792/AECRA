@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpForce = 14f;
     bool isMoving = false;
 
+    bool isDamaged=true;
+    public float effectTime=10f;
+
     [SerializeField] private AudioSource jumpSoundEffect;
     [SerializeField] private AudioSource walkSoundEffect;
 
@@ -63,9 +66,11 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
 
-        //if (Input.GetKey("right") || Input.GetKey("left")){
-        //    Debug.Log("flip");
-        //}
+        if (isDamaged){
+            StartCoroutine("DamageEffect");
+        }
+
+        
     }
     
 
@@ -79,4 +84,25 @@ public class PlayerMovement : MonoBehaviour
         jumpSoundEffect.Play();
         rb.velocity = new Vector2(rb.velocity.x, 3);
     }
+
+    IEnumerator DamageEffect()
+{
+    for(int i = 0; i < effectTime*10; ++i)
+    {
+        if(i%2 == 0)
+            sprite.color = new Color32(255, 255, 255, 90);
+        else
+            sprite.color = new Color32(255, 255, 255, 180);
+
+        yield return new WaitForSeconds(0.1f);
+    }
+
+    //Alpha Effect End
+    sprite.color = new Color32(255, 255, 255, 255);
+    
+    isDamaged = false;
+
+    yield return null;
 }
+}
+
