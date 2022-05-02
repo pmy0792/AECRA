@@ -7,7 +7,6 @@ public class ObstacleObject : MonoBehaviour
 {
     public Slider hp;
     public float DamagePower=20f;
-    public GameObject player_object;
     float timer;
     [SerializeField] private AudioSource damageSoundEffect;
     void Start()
@@ -24,11 +23,13 @@ public class ObstacleObject : MonoBehaviour
         if (other.tag=="Player"){
             hp.value-=DamagePower;
             damageSoundEffect.Play();
-            change_color();
+            Debug.Log("isDamaged=true");
+            other.GetComponent<PlayerMovement>().isDamaged=true;
 
         }
     }
-    private void change_color(){
+    
+    /*private void change_color(){
         
         while (timer<1f){
             timer+=Time.deltaTime;
@@ -40,5 +41,6 @@ public class ObstacleObject : MonoBehaviour
             //player_object.GetComponent<SpriteRenderer>().material.color=new Color(255,255,255,255);
             timer=0;
         }
-    }
+    }*/
+
 }

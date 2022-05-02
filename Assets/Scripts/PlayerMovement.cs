@@ -15,8 +15,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpForce = 14f;
     bool isMoving = false;
 
-    bool isDamaged=true;
-    public float effectTime=10f;
+    public bool isDamaged;
+    public float effectTime=1.5f;
 
     [SerializeField] private AudioSource jumpSoundEffect;
     [SerializeField] private AudioSource walkSoundEffect;
@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<CapsuleCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
+        isDamaged=false;
     }
 
     // Update is called once per frame
@@ -66,7 +67,9 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
 
+        //Debug.Log("isDamaged: "+isDamaged.ToString());
         if (isDamaged){
+            Debug.Log("Start Coroutine");
             StartCoroutine("DamageEffect");
         }
 
@@ -87,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator DamageEffect()
 {
-    for(int i = 0; i < effectTime*10; ++i)
+    for(int i = 0; i < effectTime; ++i)
     {
         if(i%2 == 0)
             sprite.color = new Color32(255, 255, 255, 90);
