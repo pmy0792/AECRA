@@ -16,7 +16,6 @@ public class ItemCollector : MonoBehaviour
     GameObject vaccine_effect;
 
     [SerializeField] private TMP_Text coinsText;
-
     [SerializeField] private AudioSource coinCollectionSoundEffect;
     [SerializeField] private AudioSource collectionSoundEffect;
 
