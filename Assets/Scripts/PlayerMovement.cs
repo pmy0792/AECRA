@@ -77,7 +77,6 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Start Coroutine");
             StartCoroutine("DamageEffect");
         }
-
         
         if (l.Count == 0)
         {

@@ -20,10 +20,10 @@ public class HPbarScript : MonoBehaviour
         {
             if (PlayerMovement.GetSize() > 0)
             {
-                PlayerMovement.RemoveLife();  
-                sl.value = 1;
-                hp.value = 100f;
-            }  
+                PlayerMovement.RemoveLife();
+            }    
+            sl.value = 1;
+            hp.value = 100f;
         }
     }
 }
