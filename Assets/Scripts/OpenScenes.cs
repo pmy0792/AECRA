@@ -29,4 +29,9 @@ public class OpenScenes : MonoBehaviour
     {
         SceneManager.LoadScene("Tutorialscene");
     }
+
+    public void OpenAbout() 
+    {
+        SceneManager.LoadScene("AboutDevs");
+    }
 }

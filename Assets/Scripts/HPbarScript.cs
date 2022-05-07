@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;   
-using UnityEngine.SceneManagement;
 
 public class HPbarScript : MonoBehaviour
 {
     public static Slider sl;
-     [SerializeField] private AudioSource deathSoundEffect;
+    public Slider hp;
+
     void Start()
     {
         sl = GetComponent<Slider>();
@@ -16,9 +16,14 @@ public class HPbarScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         if (sl.value==0.0f){
-            deathSoundEffect.Play();
-            SceneManager.LoadScene("GameOverScene");
+        if (sl.value==0.0f)
+        {
+            if (PlayerMovement.GetSize() > 0)
+            {
+                PlayerMovement.RemoveLife();  
+                sl.value = 1;
+                hp.value = 100f;
+            }  
         }
     }
 }
