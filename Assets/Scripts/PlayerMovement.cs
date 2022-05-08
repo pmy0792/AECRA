@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     bool isMoving = false;
 
     public bool isDamaged;
-    public float effectTime=1.5f;
+    public float effectTime=2f;
 
     [SerializeField] private AudioSource jumpSoundEffect;
     [SerializeField] private AudioSource walkSoundEffect;

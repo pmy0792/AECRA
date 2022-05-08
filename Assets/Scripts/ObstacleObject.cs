@@ -20,6 +20,7 @@ public class ObstacleObject : MonoBehaviour
         
     }
     private void OnTriggerEnter2D(Collider2D other) {
+        Debug.Log("Trigger");
         if (other.tag=="Player"){
             hp.value-=DamagePower;
             damageSoundEffect.Play();
