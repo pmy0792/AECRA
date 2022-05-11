@@ -49,6 +49,7 @@ SpriteAtlas:
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: 7378f645b3308f74ab8b179bf63e1409, type: 3}
   - {fileID: -5721643444492748007, guid: 0a76c88608405f6489975f45cd670123, type: 3}
   - {fileID: -7922571089753882354, guid: 0a76c88608405f6489975f45cd670123, type: 3}
   - {fileID: -630035410137463950, guid: 0a76c88608405f6489975f45cd670123, type: 3}
@@ -70,6 +71,7 @@ SpriteAtlas:
   - {fileID: -6702588810348370771, guid: 0a76c88608405f6489975f45cd670123, type: 3}
   - {fileID: -3823394026700372345, guid: 0a76c88608405f6489975f45cd670123, type: 3}
   m_PackedSpriteNamesToIndex:
+  - rock
   - PixelAtlas (1)_9
   - PixelAtlas (1)_8
   - PixelAtlas (1)_1
