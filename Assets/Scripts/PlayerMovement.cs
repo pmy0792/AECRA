@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
     public void JumpedOnEnemy()
     {
         jumpSoundEffect.Play();
-        rb.velocity = new Vector2(rb.velocity.x, 5);
+        rb.velocity = new Vector2(rb.velocity.x, 7);
     }
 
     public void AddLife(int amount)
