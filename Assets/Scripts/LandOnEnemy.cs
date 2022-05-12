@@ -6,7 +6,7 @@ using UnityEngine;
 public class LandOnEnemy : MonoBehaviour
 {
     // Start is called before the first frame update
-    public EnemyScript hp;
+    public MovementPath hp;
     public PlayerMovement bounce;
     public int DamagePower = 20;
     [SerializeField] private AudioSource damageSoundEffect;

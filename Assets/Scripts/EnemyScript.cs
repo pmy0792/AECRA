@@ -32,7 +32,6 @@ public class EnemyScript : MonoBehaviour
             if (isDamaged==false){
                 StartCoroutine("DamageEffect");
             }
-            
         }
 
 
