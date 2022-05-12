@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
     private CapsuleCollider2D coll;
     private SpriteRenderer sprite;
     [SerializeField] private LayerMask jumpableGround;
+
     private float dirX = 0f;
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private float jumpForce = 14f;
     bool isMoving = false;
+    public Transform target;
 
     public bool isDamaged,isDead;
     public float effectTime=2f;
@@ -26,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private int lives;
     [SerializeField] private Transform lifeParent;
     [SerializeField] GameObject lifePrefab;
+    public GameObject player;
     private static Stack<GameObject> l = new Stack<GameObject>();
 
     // Start is called before the first frame update
@@ -91,14 +95,12 @@ public class PlayerMovement : MonoBehaviour
 
             else {
                 if (isDying==false){
-                    deathSoundEffect.Play();
-                    //StartCoroutine(FindObjectOfType<SceneFader>().FadeAndLoadScene(SceneFader.FadeDirection.Out,"GameOverScene"));
-                    StartCoroutine("DyingEffect");}
-            }
-            
-
-           
+                    
+                //StartCoroutine(FindObjectOfType<SceneFader>().FadeAndLoadScene(SceneFader.FadeDirection.Out,"GameOverScene"));
+                StartCoroutine("DyingEffect");}
+            } 
         }
+
     }
     
     private bool IsGrounded()
@@ -177,6 +179,15 @@ public class PlayerMovement : MonoBehaviour
         isDying=false;
         isDead=true;
         yield return null;
-}
+    }
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("FallDetector"))
+        {
+            RemoveLife();
+            player.transform.position = target.position;
+        }
+    }
+
 }
 

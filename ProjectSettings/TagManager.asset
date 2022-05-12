@@ -9,6 +9,8 @@ TagManager:
   - Herb
   - Enemy
   - Platform
+  - Flag
+  - FallDetector
   layers:
   - Default
   - TransparentFX
