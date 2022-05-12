@@ -18,12 +18,17 @@ public class HPbarScript : MonoBehaviour
     {
         if (sl.value==0.0f)
         {
-            if (PlayerMovement.GetSize() > 0)
+            if (PlayerMovement.GetSize() > 1)
             {
                 PlayerMovement.RemoveLife();
+                sl.value = 1;
+                hp.value = 100f;
             }    
-            sl.value = 1;
-            hp.value = 100f;
+            else{
+                PlayerMovement.RemoveLife();
+            }
+        
+            
         }
     }
 }

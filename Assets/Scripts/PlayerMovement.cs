@@ -14,8 +14,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpForce = 14f;
     bool isMoving = false;
 
-    public bool isDamaged;
+    public bool isDamaged,isDead;
     public float effectTime=2f;
+    bool isDying;
+    float rotate_val=2f;
+    int count;
 
     [SerializeField] private AudioSource jumpSoundEffect;
     [SerializeField] private AudioSource walkSoundEffect;
@@ -33,55 +36,68 @@ public class PlayerMovement : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
 
         AddLife(Lives);
+
+        isDying=false;
+        isDead=false;
+        count=0;
     }
 
     // Update is called once per frame
     private void Update()
     {   
-        //sprite.flipX = Input.GetAxisRaw("Horizontal") == -1;
-        if (Input.GetAxisRaw("Horizontal") == -1 ){
-            sprite.flipX=true;
-        }
-        if (Input.GetAxisRaw("Horizontal") == 1){
-            sprite.flipX=false;
-        }
-        dirX = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(dirX*moveSpeed, rb.velocity.y);
-
-        if(rb.velocity.x != 0 && IsGrounded()) 
-        {
-            isMoving = true;
-        }
-        else
-        {
-            isMoving = false;
-        }
-
-        if(isMoving) {
-            if(!walkSoundEffect.isPlaying)
-            {
-                walkSoundEffect.Play();
+        if (isDying==false){
+            if (Input.GetAxisRaw("Horizontal") == -1 ){
+                sprite.flipX=true;
             }
-        } else {
-            walkSoundEffect.Stop();
-        }
+            if (Input.GetAxisRaw("Horizontal") == 1){
+                sprite.flipX=false;
+            }
+            dirX = Input.GetAxisRaw("Horizontal");
+            rb.velocity = new Vector2(dirX*moveSpeed, rb.velocity.y);
 
-        if (Input.GetButtonDown("Jump") && IsGrounded())
-        {
-            jumpSoundEffect.Play();
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        }
+            if(rb.velocity.x != 0 && IsGrounded()) 
+            {
+                isMoving = true;
+            }
+            else
+            {
+                isMoving = false;
+            }
 
-        //Debug.Log("isDamaged: "+isDamaged.ToString());
-        if (isDamaged){
-            Debug.Log("Start Coroutine");
-            StartCoroutine("DamageEffect");
+            if(isMoving) {
+                if(!walkSoundEffect.isPlaying)
+                {
+                    walkSoundEffect.Play();
+                }
+            } else {
+                walkSoundEffect.Stop();
+            }
+
+            if (Input.GetButtonDown("Jump") && IsGrounded())
+            {
+                jumpSoundEffect.Play();
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            }
+
+            if (isDamaged){
+                StartCoroutine("DamageEffect");
+            }
         }
-        
         if (l.Count == 0)
-        {
-            deathSoundEffect.Play();
-            SceneManager.LoadScene("GameOverScene");
+        {   
+            if (isDead){
+                 SceneManager.LoadScene("GameOverScene");
+            }
+
+            else {
+                if (isDying==false){
+                    deathSoundEffect.Play();
+                    //StartCoroutine(FindObjectOfType<SceneFader>().FadeAndLoadScene(SceneFader.FadeDirection.Out,"GameOverScene"));
+                    StartCoroutine("DyingEffect");}
+            }
+            
+
+           
         }
     }
     
@@ -141,4 +157,26 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public int Lives { get => lives; set => lives = value; }
+
+
+    IEnumerator DyingEffect(){
+        
+        isDying=true;
+
+        while (count<30){
+            if (sprite.flipX==true){
+                rb.transform.eulerAngles=new Vector3(0,0,rotate_val*count);
+            }
+            else{
+                 rb.transform.eulerAngles=new Vector3(0,0,(-1)*rotate_val*count);
+            }
+            count+=1;
+            yield return new WaitForSeconds(0.1f);
+        }    
+
+        isDying=false;
+        isDead=true;
+        yield return null;
 }
+}
+
