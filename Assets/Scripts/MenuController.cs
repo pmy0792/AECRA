@@ -12,7 +12,7 @@ public class MenuController : MonoBehaviour
 
     public void NewGameDialogYes()
     {
-        ItemCollector.coins = 0;
+        PlayerPrefs.SetInt("Saved", 0);
         SceneManager.LoadScene(_newGameLevel);
     }
 

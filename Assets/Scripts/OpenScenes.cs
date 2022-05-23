@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class OpenScenes : MonoBehaviour
 {
+    private void Update() {
+    }
     public void OpenBugScene() 
     {
         SceneManager.LoadScene("HelpSectionScene");
@@ -17,6 +19,7 @@ public class OpenScenes : MonoBehaviour
 
     public void OpenStartGame() 
     {
+        PlayerPrefs.SetInt("Saved", 0);
         SceneManager.LoadScene("PlayScene2");
     }
 
@@ -33,5 +36,11 @@ public class OpenScenes : MonoBehaviour
     public void OpenAbout() 
     {
         SceneManager.LoadScene("AboutDevs");
+    }
+
+    public void OpenNewLvl() 
+    {
+        PlayerPrefs.SetInt("coins", ItemCollector.coins);
+        SceneManager.LoadScene("LVL1");        
     }
 }

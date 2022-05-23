@@ -38,4 +38,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/LVL1.unity
     guid: 6384fe5c7d1bdbb4fad29960d4f03ed5
+  - enabled: 1
+    path: Assets/Scene/AfterLevel.unity
+    guid: da8569fe4ef770f4ca2c3f9274e5458d
+  - enabled: 1
+    path: Assets/Scene/AfterGame.unity
+    guid: 1ab30585f0c566849b95cb4e112bd070
   m_configObjects: {}
